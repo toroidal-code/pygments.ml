@@ -1,0 +1,28 @@
+OASISFormat: 0.4
+Name:        pygments
+Version:     0.1
+Synopsis:    Pygments wrapper for OCaml
+Authors:     Ted Nyman, Aman Gupta, Katherine Whitlock
+License:     MIT
+Plugins:     DevFiles (0.4), META (0.4)
+
+Library pygments
+  Path:            src
+  BuildTools:      ocamlbuild
+  Modules:         Pygments
+  InternalModules: Popen
+  BuildDepends:    core, yojson, threads, re2
+  DataFiles:       mentos.py ($bindir)
+  Install:         true
+
+Executable test
+  Path:            src
+  MainIs:          test.ml
+  BuildDepends:    pygments
+  BuildTools:      ocamlbuild
+  Install:         false
+
+SourceRepository pygments
+  Type:     git
+  Location: git://github.com/toroidal-code/pygments.ml
+
